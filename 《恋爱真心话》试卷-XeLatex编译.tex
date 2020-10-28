@@ -1,0 +1,364 @@
+% !Mode::"TeX:UTF-8"
+\documentclass[twocolumn,landscape,UTF8]{ctexart}
+\usepackage{lastpage}
+%\usepackage{times} %use the Times New Roman fonts
+\usepackage{color}
+%\usepackage{placeins}
+\usepackage{ulem}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{setspace}       % 行间距
+\usepackage{bm}             %\boldsymbol 粗体
+% 数学
+\usepackage{amsmath,amsfonts,amsmath,amssymb,times}
+\usepackage{txfonts}
+\usepackage{enumerate}     % 编号
+\usepackage{tikz,pgfplots} % 绘图
+\usepackage{tkz-euclide,pgfplots}
+\usetikzlibrary{automata,positioning}
+%\usepackage[paperwidth=18.4cm,paperheight=26cm,top=1.5cm,bottom=2cm,right=2cm]{geometry} % 单页
+\usepackage[paperwidth=36.8cm,paperheight=26cm,top=2.5cm,bottom=2cm,right=2cm]{geometry}
+\lstset{language=C,keywordstyle=\color{red},showstringspaces=false,rulesepcolor=\color{green}}
+\oddsidemargin=0.5cm       % 奇数页页边距
+\evensidemargin=0.5cm      % 偶数页页边距
+%\textwidth=14.5cm         % 文本的宽度 单页
+\textwidth=30cm            % 文本的宽度 单页
+
+\newsavebox{\zdx}          % 装订线
+
+\newcommand{\putzdx}{\marginpar{
+		\parbox{1cm}{\vspace{-1.6cm}
+			\rotatebox[origin=c]{90}{
+				\usebox{\zdx}
+		}}
+}}
+
+\newcommand{\blank}{\uline{\textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}}}
+
+\newcommand{\me}{\mathrm{e}}  % 定义 对数常数e，虚数符号i,j以及微分算子d为直立体。
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\mj}{\mathrm{j}}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\bs}{\boldsymbol} % 数学黑体
+\newcommand{\ds}{\displaystyle}
+%通常我们使用的分数线是系统自己定义的分数线，即分数线的长度的预设值是分子或分母所占的最大宽度，如何让分数线的长度变长成，我们%可以在分子分母添加间隔来实现。如中文分式的命令可以定义为：
+%\newcommand{\chfrac[2]}{\cfrac{\;#1\;}{\;#2\;}}
+%\frac{1}{2} \qquad \chfrac{1}{2}
+
+%选择题
+\newcommand{\fourch}[4]{\\\begin{tabular}{*{4}{@{}p{3.5cm}}}
+		(A)~#1 & (B)~#2 & (C)~#3 & (D)~#4\end{tabular}} % 四行
+\newcommand{\twoch}[4]{\\\begin{tabular}{*{2}{@{}p{7cm}}}
+		(A)~#1 & (B)~#2\end{tabular}\\\begin{tabular}{*{2}{@{}p{7cm}}}(C)~#3 &		(D)~#4\end{tabular}}  %两行
+\newcommand{\onech}[4]{\\(A)~#1 \\ (B)~#2 \\ (C)~#3 \\ (D)~#4}  % 一行
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\begin{document} % 在begin前面加了一个空格以免出现显示错误，编译时应该去掉
+\fancyhf{}
+\fancyfoot[CO,CE]{\vspace*{1mm}第\,\thepage\,页 , 共 ~\pageref{LastPage} 页}
+\sbox{\zdx}
+{\parbox{27cm}{\centering
+	时~间\underline{\makebox[34mm][c]{}}~
+	年~龄\underline{\makebox[34mm][c]{}}~\CJKfamily{song} 性~别\underline{\makebox[44mm][c]{}}~\CJKfamily{song}
+	姓~名\underline{\makebox[34mm][c]{}}~\\
+	\vspace{3mm}
+请在所附答题纸上空出密封位置，并填写相关信息。\\
+%答题时学号
+\vspace{1mm}
+\dotfill{} 密\dotfill{}封\dotfill{}线\dotfill{} \\
+	}}
+	\reversemarginpar
+	
+\begin{spacing}{1.25}
+\begin{center}
+\begin{LARGE}
+	
+电子科技大学~\underline{~2019~-- 2020}\,学年第\,\underline{~1~}\,学期\\
+\underline{\textbf{恋爱真心话}}期末试卷\\
+
+\end{LARGE}
+(开卷笔试 \quad  \quad 2020年01月30日 \quad 出题人：杨庆)\\
+
+%(开卷笔试 \quad 杨庆\&张继 \quad 2020年01月30日 \quad 出题人：杨庆)\\
+%(开卷笔试\ \ 杨庆\&张继\,2020年01月30日\,出题人：杨庆)\\
+
+\begin{flushleft}
+\ \textbf{注意事项：}\\
+\quad 1. 本测试包括选择题、填空题、判断题、分析题、问答题共5种题型，满分100分;\\
+\quad 2. 本测试没有标准答案，符合自己的内心想法即可;\\
+\quad 3. 本测试仅供增进双方了解及互相交流，回答存在失误或考虑不全面无太大影响;\\
+\quad 4. 本测试为开放答题，无固定时间和其他限制，需要双方自己商量;\\
+\quad 5. 本测试回答完毕后发给对方，双方根据回答酌情给分，如存在表述不清可向对方解释。
+
+\end{flushleft}
+
+%\begin{itemize}
+%	\item 1.本测试共包括选择题、填空题、判断题、分析题、问答题5种题型。 
+%	\item 2.本测试没有标准答案，符合自己的内心想法即可。   
+%	\item 3.本测试仅供增进双方了解及互相交流，回答存在失误或考虑不全面无太大影响。
+%	\item 4.本测试为开放答题，无固定时间和其他限制，需要双方自己商量。
+%\end{itemize} 
+
+%\vspace{0.1cm}
+
+\begin{tabular}{|m{0.03\textwidth}|*{8}{m{0.035\textwidth}|}p{0.04\textwidth}|}
+\hline
+\centering  题~号 & \centering 一 & \centering 二 & \centering 三 & \centering 四& \centering 五 % & \centering 六 & \centering 七 & \centering 八 & \centering 九 & \centering 十
+& \centering 总~分 & \makecell{阅卷\\教师} \rule{0pt}{3mm} \\
+\hline
+\centering 分~数 &  &  &  &  &  &  &  % &  &  &  &
+\rule{0pt}{8mm} \\\hline
+				% \centering 计 &  &  &  &  &  &  &  &  &  &  & \\
+				% \centering 分 &  &  &  &  &  &  &  &  &  &  & \\
+				% \centering 人 &  &  &  &  &  &  &  &  &  &  & \\  \hline
+\end{tabular}
+\end{center}
+\end{spacing}
+\vspace{-0.5cm}
+\setlength{\marginparsep}{1.7cm}
+\putzdx %%装订线--奇页数
+\vspace{1cm}
+	\begin{spacing}{1.3}
+		
+		\section*{\hspace{5cm} 一、选择题~(每题~1 分，共~7 分)}
+		\vspace{-2cm}
+		\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+			\hline
+			% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+			\centering 阅卷人& \\
+			\hline
+			\centering 得~~分 &  \\
+			\hline
+		\end{tabular}
+		
+\begin{enumerate}\setcounter{enumi}{0}
+	
+\item 情侣过了热恋期之后如何保持彼此间的感情？~(~~~~)
+\onech
+{两个人保持生活、学习、工作、思想状态等各方面的同步和协调，不能差异太大}
+{培养共同的兴趣爱好，经常合作完成一件事情}
+{给双方独处的空间和时间}
+{准备小惊喜，保持仪式感}
+
+\item 你最在乎另一半的特质是什么？~(~~~~)
+\fourch{外貌身材}{思想性格}{能力素质}{未来发展}
+			
+\item 发生矛盾之后，谁应该先道歉？~(~~~~)
+\onech
+{最好是男方先低头，毕竟女孩比较感性一些}
+{女方应该先低头，以唤起男方的同情心}
+{谁理亏谁先低头}
+{都应该主动向对方表明自己其实也有做得不对的地方}
+			
+\item 男女交往最忌讳什么？~(~~~~)
+\onech
+{把爱情的存在当成理所当然的事}
+{看到别人分手了对自己的爱情也产生深深的怀疑}
+{通过贬低对方显示自己的优越感}
+{遇到问题埋在心里，对方不问就不说}
+
+\item 男人对女人的误解有哪些？~(~~~~)
+\onech
+{女人年龄大了没结婚不是生理有问题就是心理有问题}
+{女人没有男人好色，更追求精神享受}
+{女人都比较现实和挑剔}
+{男人对女人太好，女人就会不珍惜}
+
+\item 女人对男人的误解有哪些？~(~~~~)
+\onech  %\twoch 
+{总有一个完美的男人在等我，只是我没遇到}
+{男人大部分是靠下半身思考的动物}
+{男的在很多方面都应该比我强}
+{男的不主动联系我，就是不喜欢我}
+
+\item 恋爱中你觉得有意思或可以尝试的事情有哪些？~(~~~~)
+\onech
+{一起逛菜市场，感受生活中的柴米油盐，你砍价，我付钱}
+{教对方一件你擅长的事情，让他觉得“ WOW ”的事情}
+{互相穿对方的衣服，再用上换脸软件自拍，看看两人有没有违和感哈哈哈}
+{每天坚持说一次我爱你或亲昵的话，爱总不说，时间长了就再也不好意思说出口了}
+
+\end{enumerate}
+%\newpage
+
+\section*{\hspace{5cm} 二、填空题~(每题~1 分, 共~ 10 分)}
+\vspace{-1cm}
+
+\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+	\hline
+	% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+	\centering 阅卷人& \\
+	\hline
+	\centering 得~~分 &  \\
+	\hline
+\end{tabular}
+\begin{enumerate}\setcounter{enumi}{7}
+	
+\item 你们第一次见面的时间：~\underline{\hbox to 40mm{}}.
+	
+\item 你们第一次加微信时间：~\underline{\hbox to 40mm{}}.
+	
+\item 你们第一次看电影时间：~\underline{\hbox to 40mm{}}.
+	
+\item 对方的生日：~\underline{\hbox to 40mm{}}.
+	
+\item 你们第一次认识的地点：~\underline{\hbox to 40mm{}}.
+	
+\item 对方送你的第一件礼物是什么：~\underline{\hbox to 40mm{}}.
+	
+\item 你们逛宜家商场最喜欢抚摸哪件物品：~\underline{\hbox to 40mm{}}.
+	
+\item 去生命奥秘博物馆哪个肌肉组织说了很多次：~\underline{\hbox to 40mm{}}.
+	
+\item 对方曾在老年痴呆测试中的提到哪几个词语：~\underline{\hbox to 40mm{}}.
+	
+\item 对方曾经带你见过哪些人：~\underline{\hbox to 40mm{}}.
+	
+
+\end{enumerate}
+
+{\color{red}开心一刻：有一个腼腆的男孩向一女孩问到:你喜欢什么样的男孩?女孩说:投缘的。男孩哭丧着脸问到:头扁的不行吗？} 
+\newpage
+\putzdx %%装订线--奇页数
+
+\section*{\hspace{4.5cm} 三、判断题:~(每题~1 分, 共~10 分)}
+\vspace{-1cm}
+\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+\hline
+			% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+\centering 阅卷人& \\
+\hline
+\centering 得~~分 &  \\
+	\hline
+\end{tabular}
+\begin{enumerate}\setcounter{enumi}{17}
+			
+\item 美国心理学家斯腾伯格提出的爱情理论，认为爱情由“激情、亲密、承诺”三个基本成分组成。 \hfill$(~~~~~~~~)$
+
+\item 好的感情需要男女双方共同培养和经营，且爱情是双需，不是单需。 \hfill $(~~~~~~~~)$
+
+\item 如果对方是个思想成熟的人，你的懂事，体谅是加分项，如果对方是个滥情人，这些美好品质就是平庸无趣。 \hfill $(~~~~~~~~)$
+
+\item 把对方对你的好忽略掉，你还愿意和他在一起，这才是真爱。 \hfill$(~~~~~~~~)$
+
+\item 恋爱就是场考试，选人考验你的辨别能力，相处考验你的解决能力，放弃考验你的取舍能力。 \hfill$(~~~~~~~~)$
+
+\item 感情是靠吸引的，不是靠感动的。 \hfill$(~~~~~~~~)$
+
+\item 你的另一半应该是一个能真正让你进步的人，这种进步可以是思想上，能力上，情绪上等各种方面。 \hfill$(~~~~~~~~)$
+
+\item 对方爱你的方式，是你爱他的方式中互相影响，潜移默化的结果。 \hfill$(~~~~~~~~)$
+
+\item 主动会掉价，克制才能长久。 \hfill$(~~~~~~~~)$
+
+\item 你认真对待爱情，爱情也会认真对待你。 \hfill $(~~~~~~~~)$
+	
+\end{enumerate}
+
+\vspace{0.5cm}
+		
+\section*{\hspace{2cm} 四、分析题~(6'+7'+10')}
+		\vspace{-2cm}
+		\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+			\hline
+			% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+			\centering  阅卷人&  \\
+			\hline
+			\centering 得~~分 &  \\
+			\hline
+		\end{tabular}
+		\begin{enumerate}\setcounter{enumi}{27}
+		\vspace{0.5cm}
+		
+\item 一段感情会经历几个阶段，简要分析各个阶段的特点，并给出两个人是否能一直保持在热恋期的理由。(本题满分6分)
+		
+%答:~(1) 热恋期，了解期，整合期 \dotfill{}(2')
+
+\item 如果有一天突然对方心情不好了，或者你们发生矛盾了，你会怎么做？
+(本题满分7分)
+		
+\item 有女(男)朋友，但又遇到更喜欢的，试分析你该怎么办，并说明理由。(本题满分10分)	
+
+\end{enumerate}
+\vspace{0.5cm}
+
+%\newpage
+\section*{\hspace{5cm}五、问答题~(每题~2 分, 共~ 50 分)}
+\vspace{-1cm}
+\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+\hline
+			% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+\centering 阅卷人& \\
+\hline
+\centering 得~~分 &  \\
+\hline
+\end{tabular}
+		
+\begin{enumerate}\setcounter{enumi}{30}
+	
+\item 讲讲你和对方的恋爱过程的吧。
+			
+\item 说说你对自己的认识，如自己的成长环境，性格，爱好等。
+
+\item 谈谈你对对方的认识。
+
+\item 你对 TA 的第一印象是什么样的？
+
+%\item 对方喜欢吃的饭菜是什么？
+
+%\item 给对方一条人生的建议。
+
+\item 对方的什么特点你比较喜欢？
+
+\item 对方做过什么事情令你比较感动？
+
+\item 遇到对方，你觉得发生了什么变化？
+
+\item 你们一起去过哪些地方，做过什么事情？
+
+\item 你觉得情侣还可以一起做的事情有哪些？
+
+\item 在没谈恋爱之前，你的恋爱标准是什么？（比如：性格、思想、学历、身高、身材等）
+
+\item 一般来说，女人和男人各自会面临什么压力。面对未来的压力，你有什么想法？
+
+\item 感情中你最不能接受的是什么？
+
+\item 常见分手的原因有哪些？
+
+\item 对方的优缺点有哪些？
+
+\item 如果能有一个机会满足你，你最想和另一半一起做什么？
+
+\item 你有什么是你自己挺满意和喜欢的？
+
+\item 你觉得自己父母的性格是什么样的？
+
+\item 你父母对你未来另一半有什么想法或要求？
+
+\item 谈谈自己的爱情观、人生观、价值观、世界观。
+
+\item 你觉得该如何平衡好工作和家庭？
+
+\item 你觉得恋爱有哪些话题可以讨论？
+
+\item 你最喜欢哪一部电视剧，电影，歌曲，并简要说明原因。
+
+\item 有哪些你认为比较重要的思想或名言？
+
+\item 男：“我喜欢一个人。”请问他可能表达的是什么意思？
+
+\item 给对方写一句肉麻的话。
+
+
+\end{enumerate}
+	
+\end{spacing}
+\clearpage
+\end{document}
